@@ -1,0 +1,104 @@
+<androidx.cardview.widget.CardView android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardElevation="10dp"
+    android:backgroundTint="@color/white"
+    card_view:contentPadding="20dp"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp"
+    android:layout_marginBottom="10dp"
+    card_view:cardCornerRadius="10dp"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/cardImages"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+       <ImageView
+           android:id="@+id/image"
+           android:layout_width="match_parent"
+           android:layout_height="100dp"
+
+           android:src="@drawable/tractor"/>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cardImages"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+        <RatingBar
+            android:id="@+id/ratingbar"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:padding="1dp"
+            style = "?android:attr/ratingBarStyleSmall"
+            android:numStars = "1"
+            android:theme="@style/RatingBar"
+            android:layout_marginLeft="5dp"/>
+        <TextView
+            android:id="@+id/txtRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=" 4.9 "
+            android:layout_marginStart="20dp"
+            android:textColor="@color/black"
+            android:textSize="12dp"
+            android:textStyle="normal" />
+        <TextView
+            android:id="@+id/txtRatingPeople"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="(1.1k)"
+            android:layout_marginStart="50dp"
+            android:textColor="@color/black"
+            android:textSize="12dp"
+            android:textStyle="normal" />
+
+    </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/cardImages"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtSDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:padding="5dp"
+                android:layout_marginStart="14dp"
+                android:text="Very powerfull engine and easily available in markets"
+                android:textColor="@color/black"
+                android:textSize="12dp" />
+            <TextView
+                android:id="@+id/budget"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="right"
+                android:text="From $8000"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="5dp"
+                android:textColor="@color/sky_blue"
+                android:textSize="12dp" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
+
+
+
+
+<!--</androidx.cardview.widget.CardView.widget>-->
