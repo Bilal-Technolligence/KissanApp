@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 //ArrayList<String> Names= new ArrayList<>();
     GridView simpleGrid;
     int logos[] = {R.drawable.rice, R.drawable.fruit, R.drawable.vggg,R.drawable.rice, R.drawable.tractor,R.drawable.logo, R.drawable.logo};
+    String detail[] = {"Rice", "Fruit", "Vegetable","Rice", "Tractor","Logo", "Logo"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 //        });
 
 
-        CustomAdapters customAdapter = new CustomAdapters(getApplicationContext(), logos);
+        CustomAdapters customAdapter = new CustomAdapters(getApplicationContext(), logos , detail);
         simpleGrid.setAdapter(customAdapter);
         // implement setOnItemClickListener event on GridView
         simpleGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
