@@ -15,42 +15,284 @@
         android:iconifiedByDefault="false"
         android:queryHint="Search Here"
         tools:ignore="MissingConstraints" />
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:background="@color/white"
         android:layout_marginTop="70dp"
         android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="30dp"
+            android:paddingBottom="90dp"
+            android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:paddingStart="20dp"
-                android:background="@color/white"
-                android:text="Browse by Category"
-                android:textColor="@color/black"
-                android:textSize="25dp"
-                android:textStyle="bold" />
-
-            <GridView
-                android:id="@+id/simpleGridView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/white"
-                android:footerDividersEnabled="false"
-                android:numColumns="2"
+                android:layout_marginTop="0dp"
+                android:layout_weight="2"
+                android:gravity="center"
                 android:padding="2dp"
-                android:layout_marginBottom="67dp"
-                tools:ignore="MissingConstraints" />
+                android:orientation="horizontal">
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fruitCard"
+                    android:layout_height="200dp"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    app:cardElevation="10dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="20dp"
+                    android:layout_margin="10dp"
+                    app:cardBackgroundColor="@color/white">
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="5dp">
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="140dp"
+                            android:layout_height="140dp"
+                            android:background="@color/white"
+                            android:src="@drawable/fruits"
+                            app:civ_border_color="#FFF"
+                            app:civ_border_width="2dp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Fruits Market"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:layout_marginTop="10dp"/>
+
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/vegetableCard"
+                    android:layout_height="200dp"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_weight="1"
+                    app:cardElevation="10dp"
+                    app:cardCornerRadius="20dp"
+                    android:layout_margin="10dp"
+                    app:cardBackgroundColor="@color/white">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="5dp">
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="140dp"
+                            android:layout_height="140dp"
+                            android:background="@color/white"
+                            android:src="@drawable/vggg"
+                            app:civ_border_color="#FFF"
+                            app:civ_border_width="2dp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Vegetables Market"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:layout_marginTop="10dp"/>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:padding="2dp"
+                android:orientation="horizontal">
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/animalCard"
+                    android:layout_height="200dp"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    app:cardElevation="10dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="20dp"
+                    android:layout_margin="10dp"
+                    app:cardBackgroundColor="@color/white">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="5dp">
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="140dp"
+                            android:layout_height="140dp"
+                            android:background="@color/white"
+                            android:src="@drawable/logo"
+                            app:civ_border_color="#FFF"
+                            app:civ_border_width="2dp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Animals Market"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:layout_marginTop="10dp"/>
+
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/chickenCard"
+                    android:layout_height="200dp"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_weight="1"
+                    app:cardElevation="10dp"
+                    app:cardCornerRadius="20dp"
+                    android:layout_margin="10dp"
+                    app:cardBackgroundColor="@color/white">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="5dp">
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="140dp"
+                            android:layout_height="140dp"
+                            android:background="@color/white"
+                            android:src="@drawable/chicken"
+                            app:civ_border_color="#FFF"
+                            app:civ_border_width="2dp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Chicken Market"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:layout_marginTop="10dp"/>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/buttons1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:padding="2dp"
+                android:orientation="horizontal">
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/riceCard"
+                    android:layout_height="200dp"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    app:cardElevation="10dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="20dp"
+                    android:layout_margin="10dp"
+                    app:cardBackgroundColor="@color/white">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="5dp">
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="140dp"
+                            android:layout_height="140dp"
+                            android:background="@color/white"
+                            android:src="@drawable/rice"
+                            app:civ_border_color="#FFF"
+                            app:civ_border_width="2dp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Wheat, Rice Market"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:layout_marginTop="10dp"/>
+
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/tractorCard"
+                    android:layout_height="200dp"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_weight="1"
+                    app:cardElevation="10dp"
+                    app:cardCornerRadius="20dp"
+                    android:layout_margin="10dp"
+                    app:cardBackgroundColor="@color/white">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="5dp">
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/skillImages"
+                            android:layout_width="140dp"
+                            android:layout_height="140dp"
+                            android:background="@color/white"
+                            android:src="@drawable/tractor"
+                            app:civ_border_color="#FFF"
+                            app:civ_border_width="2dp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Open Market"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:layout_marginTop="10dp"/>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+
+
+            </LinearLayout>
         </LinearLayout>
-    </RelativeLayout>
+    </ScrollView>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigationView"
         android:layout_width="match_parent"

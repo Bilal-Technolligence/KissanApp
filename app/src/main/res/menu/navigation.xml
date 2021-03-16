@@ -7,15 +7,19 @@
         android:icon="@drawable/home"
         android:title="Home" />
     <item
-        android:id="@+id/nav_diet"
+        android:id="@+id/nav_chat"
         android:icon="@drawable/chat"
         android:title="Chat" />
     <item
-        android:id="@+id/nav_notification"
+        android:id="@+id/nav_sell"
         android:icon="@drawable/sell"
         android:title="Sell" />
     <item
-        android:id="@+id/nav_setting"
+        android:id="@+id/nav_notification"
+        android:icon="@drawable/ic_baseline_notifications_24"
+        android:title="Notifications" />
+    <item
+        android:id="@+id/nav_profile"
         android:icon="@drawable/account"
         android:title="Account" />
 </menu>

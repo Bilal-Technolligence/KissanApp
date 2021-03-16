@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".RiceActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/camera"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                app:cardCornerRadius="10dp"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                app:cardElevation="10dp"
+                app:cardBackgroundColor="@color/white">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="16dp"
+                    android:gravity="left"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:src="@drawable/mangoes" />
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginStart="5dp"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+                       <LinearLayout
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:weightSum="2"
+                           android:orientation="horizontal">
+                           <TextView
+                               android:id="@+id/txtbudget"
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:layout_weight="1"
+                               android:gravity="left"
+                               android:text="Rs.1500000  "
+                               android:layout_marginBottom="5dp"
+                               android:textColor="@color/green"
+                               android:textSize="12dp" />
+                           <ImageView
+                               android:id="@+id/txtLove"
+                               android:layout_weight="1"
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:gravity="right"
+                               android:src="@drawable/emptyheart"
+                               android:layout_marginBottom="5dp" />
+                       </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/txtTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Mangoes Farm"
+                            android:textColor="@color/black"
+                            android:gravity="left"
+                            android:textSize="18sp" />
+                        <TextView
+                            android:id="@+id/notification_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Anwer Rathore is ready for sale please contact"
+                            android:gravity="left"
+                            android:textSize="18sp" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="2"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="left"
+                                android:src="@drawable/marker" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="2"
+                                android:gravity="center|left"
+                                android:layout_marginStart="10dp"
+                                android:text="Texila  "
+                                android:textColor="@color/green"
+                                android:textSize="12dp" />
+
+                        </LinearLayout>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:text="25-Mar-2021"
+                            android:layout_marginEnd="10dp"
+                            android:textSize="12dp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                app:cardCornerRadius="10dp"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                app:cardElevation="10dp"
+                app:cardBackgroundColor="@color/white">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="16dp"
+                    android:gravity="left"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:src="@drawable/grapes" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginStart="5dp"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="2"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="left"
+                                android:text="Rs.3000000  "
+                                android:layout_marginBottom="5dp"
+                                android:textColor="@color/green"
+                                android:textSize="12dp" />
+                            <ImageView
+                                android:layout_weight="1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="right"
+                                android:src="@drawable/fillheart"
+                                android:layout_marginBottom="5dp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Grapes Farm"
+                            android:textColor="@color/black"
+                            android:gravity="left"
+                            android:textSize="18sp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Grapes are ready for sale please contact if anyone interested"
+                            android:gravity="left"
+                            android:textSize="18sp" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="2"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="left"
+                                android:src="@drawable/marker" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="2"
+                                android:gravity="center|left"
+                                android:layout_marginStart="10dp"
+                                android:text="Haripur  "
+                                android:textColor="@color/green"
+                                android:textSize="12dp" />
+
+                        </LinearLayout>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:text="25-Mar-2021"
+                            android:layout_marginEnd="10dp"
+                            android:textSize="12dp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                app:cardCornerRadius="10dp"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                app:cardElevation="10dp"
+                app:cardBackgroundColor="@color/white">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="16dp"
+                    android:gravity="left"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:src="@drawable/bana" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginStart="5dp"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="2"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="left"
+                                android:text="Rs.250000  "
+                                android:layout_marginBottom="5dp"
+                                android:textColor="@color/green"
+                                android:textSize="12dp" />
+                            <ImageView
+                                android:layout_weight="1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="right"
+                                android:src="@drawable/emptyheart"
+                                android:layout_marginBottom="5dp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Bnana Farm"
+                            android:textColor="@color/black"
+                            android:gravity="left"
+                            android:textSize="18sp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Bnana are ready for sale please contact if anyone interested"
+                            android:gravity="left"
+                            android:textSize="18sp" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="2"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="left"
+                                android:src="@drawable/marker" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="2"
+                                android:gravity="center|left"
+                                android:layout_marginStart="10dp"
+                                android:text="Islamabad  "
+                                android:textColor="@color/green"
+                                android:textSize="12dp" />
+
+                        </LinearLayout>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:text="20-Feb-2021"
+                            android:layout_marginEnd="10dp"
+                            android:textSize="12dp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                app:cardCornerRadius="10dp"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                app:cardElevation="10dp"
+                app:cardBackgroundColor="@color/white">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="16dp"
+                    android:gravity="left"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:src="@drawable/grapes" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginStart="5dp"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="2"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="left"
+                                android:text="Rs.550  "
+                                android:layout_marginBottom="5dp"
+                                android:textColor="@color/green"
+                                android:textSize="12dp" />
+                            <ImageView
+                                android:layout_weight="1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="right"
+                                android:src="@drawable/fillheart"
+                                android:layout_marginBottom="5dp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Fresh Grapes"
+                            android:textColor="@color/black"
+                            android:gravity="left"
+                            android:textSize="18sp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Grapes are ready for sale please contact if anyone interested"
+                            android:gravity="left"
+                            android:textSize="18sp" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="2"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="left"
+                                android:src="@drawable/marker" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="2"
+                                android:gravity="center|left"
+                                android:layout_marginStart="10dp"
+                                android:text="Haripur  "
+                                android:textColor="@color/green"
+                                android:textSize="12dp" />
+
+                        </LinearLayout>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:text="25-Mar-2021"
+                            android:layout_marginEnd="10dp"
+                            android:textSize="12dp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

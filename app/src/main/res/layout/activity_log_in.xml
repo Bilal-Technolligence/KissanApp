@@ -30,8 +30,8 @@
                 android:layout_height="wrap_content"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:hint="Enter Email"
-                app:boxStrokeColor="@color/red"
-                android:textColorHint="@color/red">
+                app:boxStrokeColor="@color/green"
+                android:textColorHint="@color/green">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/email"
                     android:inputType="textEmailAddress"
@@ -49,9 +49,9 @@
                 android:layout_height="wrap_content"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:hint="Enter Password"
-                app:boxStrokeColor="@color/red"
+                app:boxStrokeColor="@color/green"
 
-                android:textColorHint="@color/red">
+                android:textColorHint="@color/green">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/password"
                     android:inputType="textPassword"
@@ -66,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/loginKissan"
                 android:padding="10dp"
-                android:backgroundTint="@color/red"
+                android:backgroundTint="@color/green"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="40dp"
                 android:layout_marginLeft="40dp"
@@ -80,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/loginHelper"
                 android:padding="10dp"
-                android:backgroundTint="@color/red"
+                android:backgroundTint="@color/green"
                 android:layout_marginStart="40dp"
                 android:layout_marginEnd="40dp"
                 android:layout_marginBottom="20dp"
@@ -122,7 +122,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="SignUp"
-                    android:textColor="@color/red"
+                    android:textColor="@color/green"
                     android:textSize="25sp"
                     />
             </LinearLayout>
