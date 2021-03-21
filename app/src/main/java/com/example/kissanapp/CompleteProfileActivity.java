@@ -118,7 +118,7 @@ public class CompleteProfileActivity extends AppCompatActivity {
                                     userAttr.setContact(contact);
                                     userAttr.setName(name);
                                     userAttr.setId(uid);
-                                    userAttr.setCity(city);
+                                    userAttr.setCity(city.toLowerCase());
                                     userAttr.setImageUrl(downloadUri.toString());
                                     reference.child(uid).setValue(userAttr);
 

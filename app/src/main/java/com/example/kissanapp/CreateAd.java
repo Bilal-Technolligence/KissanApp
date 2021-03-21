@@ -78,8 +78,10 @@ public class CreateAd extends AppCompatActivity {
                     cat = "Open Market";
                 if (cat.contains("Poultry Market"))
                     cat = "Poultry Market";
-                if (cat.contains("Handicrafts"))
-                    cat = "Handicrafts";
+                if (cat.contains("Fertilizer"))
+                    cat = "Fertilizer";
+                if (cat.contains("Medicine"))
+                    cat = "Medicine";
             }
 
             @Override
@@ -133,7 +135,7 @@ public class CreateAd extends AppCompatActivity {
                             AdAttr adAttr = new AdAttr();
                             adAttr.setId(push);
                             adAttr.setUserId(uid);
-                            adAttr.setTitle(tit);
+                            adAttr.setTitle(tit.toUpperCase());
                             adAttr.setPrice(pri);
                             adAttr.setCategory(cat.toUpperCase());
                             adAttr.setImage(img1);

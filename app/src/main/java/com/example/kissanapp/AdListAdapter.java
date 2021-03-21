@@ -56,6 +56,20 @@ public class AdListAdapter extends RecyclerView.Adapter<AdListAdapter.ViewHolder
         holder.date.setText(adAttrs.get(position).getDate());
 
         String userId = adAttrs.get(position).getUserId();
+        databaseReference.child("Users").child(userId).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    String cit = snapshot.child("city").getValue().toString();
+                    holder.city.setText(cit);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         String id = adAttrs.get(position).getId();
 
@@ -76,6 +90,16 @@ public class AdListAdapter extends RecyclerView.Adapter<AdListAdapter.ViewHolder
                 }
             });
         }
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!userId.equals(uid)){
+                    Intent i = new Intent(activity , AdDetail.class);
+                    i.putExtra("id" , id);
+                    activity.startActivity(i);
+                }
+            }
+        });
         holder.like.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

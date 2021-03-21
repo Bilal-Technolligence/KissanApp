@@ -37,7 +37,65 @@ public class MainActivity extends BaseClass {
         btnFruit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), FruitActivity.class));
+                Intent i = new Intent(MainActivity.this , FruitActivity.class);
+                i.putExtra("id" , "FRUITS");
+                startActivity(i);
+            }
+        });
+        btnVegetables.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this , FruitActivity.class);
+                i.putExtra("id" , "VEGETABLES");
+                startActivity(i);
+            }
+        });
+        btnAnimales.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this , FruitActivity.class);
+                i.putExtra("id" , "ANIMALS");
+                startActivity(i);
+            }
+        });
+        btnChicken.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this , FruitActivity.class);
+                i.putExtra("id" , "POULTRY MARKET");
+                startActivity(i);
+            }
+        });
+        btnRice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this , FruitActivity.class);
+                i.putExtra("id" , "CEREALS");
+                startActivity(i);
+            }
+        });
+        btnTractor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this , FruitActivity.class);
+                i.putExtra("id" , "CEREALS");
+                startActivity(i);
+            }
+        });
+        btnFertilizer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this , FruitActivity.class);
+                i.putExtra("id" , "FERTILIZER");
+                startActivity(i);
+            }
+        });
+        btnSpray.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this , FruitActivity.class);
+                i.putExtra("id" , "MEDICINE");
+                startActivity(i);
             }
         });
 

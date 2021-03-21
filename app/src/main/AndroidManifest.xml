@@ -9,9 +9,8 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.KissanApp">
-        <activity android:name=".CreateAd">
-
-        </activity>
+        <activity android:name=".AdDetail"></activity>
+        <activity android:name=".CreateAd"></activity>
         <activity android:name=".ChatList" />
         <activity android:name=".SearchActivity" />
         <activity android:name=".MyProfile" />
@@ -34,7 +33,7 @@
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
             android:name=".SplashScreen"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

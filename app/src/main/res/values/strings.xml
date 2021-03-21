@@ -10,7 +10,8 @@
         <item>Animals  جانور</item>
         <item>Open Market  کھلی منڈی</item>
         <item>Poultry Market  پولٹری مارکیٹ </item>
-        <item>Handicrafts  دستکاری</item>
+        <item>Fertilizer  کھاد</item>
+        <item>Medicine  دوائی</item>
     </string-array>
     <string-array name="product_quantity">
         <item>Farm</item>
