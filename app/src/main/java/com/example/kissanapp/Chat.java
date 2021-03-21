@@ -24,10 +24,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class Chat extends BaseClass {
+public class Chat extends AppCompatActivity {
     RecyclerView recyclerView;
-    DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
-    String userId= FirebaseAuth.getInstance().getCurrentUser().getUid();
+//    DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
+//    String userId= FirebaseAuth.getInstance().getCurrentUser().getUid();
   //  ArrayList<MessageAttr> messageAttrs=new ArrayList<>();
     EditText editText;
     ImageView imageView,imageProfile;
@@ -126,13 +126,4 @@ public class Chat extends BaseClass {
 //        });
     }
 
-    @Override
-    int getContentViewId() {
-        return R.layout.activity_chat;
-    }
-
-    @Override
-    int getNavigationMenuItemId() {
-        return R.id.nav_chat;
-    }
 }

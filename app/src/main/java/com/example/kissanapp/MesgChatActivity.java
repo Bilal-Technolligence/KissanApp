@@ -94,6 +94,6 @@ public class MesgChatActivity extends BaseClass {
 
     @Override
     int getNavigationMenuItemId() {
-        return R.id.nav_home;
+        return R.id.nav_chat;
     }
 }

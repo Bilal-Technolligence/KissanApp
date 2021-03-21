@@ -8,12 +8,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class CompleteProfileActivity extends AppCompatActivity {
+public class CompleteProfileActivity extends BaseClass {
 CardView btnCompleteProfile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_complete_profile);
+        //setContentView(R.layout.activity_complete_profile);
     btnCompleteProfile = (CardView) findViewById(R.id.btnComplete);
             btnCompleteProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -21,5 +21,15 @@ CardView btnCompleteProfile;
                 startActivity(new Intent(getApplicationContext(),MainActivity.class));
             }
         });
+    }
+
+    @Override
+    int getContentViewId() {
+        return R.layout.activity_complete_profile;
+    }
+
+    @Override
+    int getNavigationMenuItemId() {
+        return R.id.nav_profile;
     }
 }

@@ -15,6 +15,7 @@
         <activity android:name=".DetailFruitActivity"
             android:parentActivityName=".FruitActivity"/>
         <activity android:name=".RiceActivity" />
+        <activity android:name=".Chat"/>
         <activity android:name=".FruitActivity" />
         <activity android:name=".ChickenActivity" />
         <activity android:name=".CompleteProfileActivity" />
