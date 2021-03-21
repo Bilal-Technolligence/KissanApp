@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 public class LogInActivity extends AppCompatActivity {
     Button btnKissanLogin;
-    TextView txtSignUp;
+    TextView txtSignUp , txtSignUp2;
     EditText email , password;
     ProgressDialog progressDialog;
 
@@ -23,12 +23,20 @@ public class LogInActivity extends AppCompatActivity {
         setContentView(R.layout.activity_log_in);
         btnKissanLogin = findViewById(R.id.loginKissan);
         txtSignUp = findViewById(R.id.sigup);
+        txtSignUp2 = findViewById(R.id.sigup2);
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         progressDialog=new ProgressDialog(this);
         progressDialog.setMessage("Logging In..... ");
         final FirbaseAuthenticationClass firbaseAuthenticationClass=new FirbaseAuthenticationClass();
         txtSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), SignUpActivity.class));
+                finish();
+            }
+        });
+        txtSignUp2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), SignUpActivity.class));

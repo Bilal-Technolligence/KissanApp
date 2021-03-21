@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public abstract class BaseClass extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
+public abstract class BaseClass extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
     protected BottomNavigationView navigationView;
     Boolean session;
 
@@ -25,35 +25,38 @@ public abstract class BaseClass extends AppCompatActivity implements BottomNavig
 
 
     }
+
     @Override
     protected void onStart() {
         super.onStart();
         updateNavigationBarState();
     }
+
     @Override
     public void onPause() {
         super.onPause();
         overridePendingTransition(0, 0);
     }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
         if (itemId == R.id.nav_home) {
             startActivity(new Intent(this, MainActivity.class));
         } else if (itemId == R.id.nav_chat) {
-            Intent intent=new Intent(this, Chat.class);
+            Intent intent = new Intent(this, ChatList.class);
             startActivity(intent);
             finish();
         } else if (itemId == R.id.nav_sell) {
-               Intent intent=new Intent(this, SellingActivity.class);
-              startActivity(intent);
+            Intent intent = new Intent(this, SellingActivity.class);
+            startActivity(intent);
             finish();
-        }else if (itemId == R.id.nav_notification) {
-               Intent intent=new Intent(this, NotificationsActivity.class);
-              startActivity(intent);
+        } else if (itemId == R.id.nav_notification) {
+            Intent intent = new Intent(this, NotificationsActivity.class);
+            startActivity(intent);
             finish();
-        }else if (itemId == R.id.nav_profile) {
-            Intent intent=new Intent(this, CompleteProfileActivity.class);
+        } else if (itemId == R.id.nav_profile) {
+            Intent intent = new Intent(this, MyProfile.class);
             startActivity(intent);
             finish();
         }
@@ -61,10 +64,11 @@ public abstract class BaseClass extends AppCompatActivity implements BottomNavig
         return true;
     }
 
-    private void updateNavigationBarState(){
+    private void updateNavigationBarState() {
         int actionId = getNavigationMenuItemId();
         selectBottomNavigationBarItem(actionId);
     }
+
     void selectBottomNavigationBarItem(int itemId) {
         MenuItem item = navigationView.getMenu().findItem(itemId);
         item.setChecked(true);
@@ -81,7 +85,7 @@ public abstract class BaseClass extends AppCompatActivity implements BottomNavig
 //        }
 //    }
 
-//    public void SESSION(){
+    //    public void SESSION(){
 //        //default value false
 //        session = Boolean.valueOf(SaveLogin.read(getApplicationContext(),"session","false"));
 //        if (!session){

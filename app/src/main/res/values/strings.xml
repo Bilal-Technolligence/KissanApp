@@ -1,13 +1,16 @@
 <resources>
-    <string name="app_name">KissanApp</string>
+    <string name="app_name">Kissan App</string>
     <string name="enter_password">Enter Password</string>
     <string name="product_p">Choose Product</string>
 
-    <string-array name="distric_array">
-        <item>Rawalpindi</item>
-        <item>Gujrat</item>
-        <item>Lahore</item>
-        <item>Faislabad</item>
+    <string-array name="ad_category">
+        <item>Fruits  پھل</item>
+        <item>Cereals  اناج</item>
+        <item>Vegetables  سبزیاں</item>
+        <item>Animals  جانور</item>
+        <item>Open Market  کھلی منڈی</item>
+        <item>Poultry Market  پولٹری مارکیٹ </item>
+        <item>Handicrafts  دستکاری</item>
     </string-array>
     <string-array name="product_quantity">
         <item>Farm</item>
@@ -32,4 +35,6 @@
         <item>Wood Carvings</item>
         <item>Earthen Pots</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -9,13 +9,20 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.KissanApp">
-        <activity android:name=".NotificationsActivity"></activity>
+        <activity android:name=".CreateAd">
+
+        </activity>
+        <activity android:name=".ChatList" />
+        <activity android:name=".SearchActivity" />
+        <activity android:name=".MyProfile" />
+        <activity android:name=".NotificationsActivity" />
         <activity android:name=".NewProductActivity" />
         <activity android:name=".SellingActivity" />
-        <activity android:name=".DetailFruitActivity"
-            android:parentActivityName=".FruitActivity"/>
+        <activity
+            android:name=".DetailFruitActivity"
+            android:parentActivityName=".FruitActivity" />
         <activity android:name=".RiceActivity" />
-        <activity android:name=".Chat"/>
+        <activity android:name=".Chat" />
         <activity android:name=".FruitActivity" />
         <activity android:name=".ChickenActivity" />
         <activity android:name=".CompleteProfileActivity" />
@@ -27,14 +34,14 @@
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
             android:name=".SplashScreen"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"></activity>
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

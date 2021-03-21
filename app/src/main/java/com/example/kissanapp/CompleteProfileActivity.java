@@ -31,7 +31,7 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
 
-public class CompleteProfileActivity extends BaseClass {
+public class CompleteProfileActivity extends AppCompatActivity {
     CardView btnCompleteProfile;
     EditText name, phone, city, email;
     ProgressDialog progressDialog;
@@ -47,7 +47,7 @@ public class CompleteProfileActivity extends BaseClass {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_complete_profile);
+        setContentView(R.layout.activity_complete_profile);
         btnCompleteProfile = (CardView) findViewById(R.id.btnComplete);
         name = findViewById(R.id.txtName);
         phone = findViewById(R.id.txtPhone);
@@ -103,6 +103,7 @@ public class CompleteProfileActivity extends BaseClass {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+
                             StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("images/" + FirebaseDatabase.getInstance().getReference().child("Users").push().getKey());
                             storageReference.putFile(imagePath).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                                 @Override
@@ -130,7 +131,6 @@ public class CompleteProfileActivity extends BaseClass {
 
                                 }
                             });
-
                         }
                     }
                 }).addOnFailureListener(new OnFailureListener() {
@@ -140,16 +140,6 @@ public class CompleteProfileActivity extends BaseClass {
                 progressDialog.dismiss();
             }
         });
-    }
-
-    @Override
-    int getContentViewId() {
-        return R.layout.activity_complete_profile;
-    }
-
-    @Override
-    int getNavigationMenuItemId() {
-        return R.id.nav_profile;
     }
 
     @Override

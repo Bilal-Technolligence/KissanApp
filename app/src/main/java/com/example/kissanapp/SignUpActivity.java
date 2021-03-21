@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
 public class SignUpActivity extends AppCompatActivity {
     CardView btnRegister;
     EditText email , password;
-    TextView txtLogIn;
+    TextView txtLogIn , txtlogin2;
     private static final Pattern PASSWORD_PATTERN =
             Pattern.compile("^" +
                     //"(?=.*[0-9])" +         //at least 1 digit
@@ -33,6 +33,7 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
         btnRegister = findViewById(R.id.signup);
         txtLogIn = findViewById(R.id.login);
+        txtlogin2 = findViewById(R.id.login2);
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         btnRegister.setOnClickListener(new View.OnClickListener() {
@@ -42,6 +43,13 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
         txtLogIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),LogInActivity.class));
+                finish();
+            }
+        });
+        txtlogin2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(),LogInActivity.class));

@@ -23,6 +23,9 @@ public class SellingTabsAdapter extends FragmentStatePagerAdapter {
             case 1:
                 FavoriteFragment favoriteFragment=new FavoriteFragment();
                 return favoriteFragment;
+            case 2:
+                cartFragment cartFragment=new cartFragment();
+                return cartFragment;
 
             default:
                 return null;
