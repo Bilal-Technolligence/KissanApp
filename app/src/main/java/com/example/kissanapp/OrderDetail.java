@@ -3,10 +3,14 @@ package com.example.kissanapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.telephony.SmsManager;
@@ -25,15 +29,16 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 public class OrderDetail extends AppCompatActivity {
-    ImageView adImage , buyerProfile , sellerProfile;
-    TextView price , city , date , category , quantity , description , buyerName , sellerName ,title;
-    Button chat , call , msg , complete ;
+    ImageView adImage, buyerProfile, sellerProfile;
+    TextView price, city, date, category, quantity, description, buyerName, sellerName, title;
+    Button chat, call, msg, complete;
     String id;
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     DatabaseReference databaseReference = firebaseDatabase.getReference();
-    String contact , buyerId , sellerId;
+    String contact, buyerId, sellerId;
     String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-    CardView buyer , seller;
+    CardView buyer, seller;
+    int PERMISSION_SEND_SMS = 123;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +50,7 @@ public class OrderDetail extends AppCompatActivity {
         price = findViewById(R.id.price);
         city = findViewById(R.id.city);
         date = findViewById(R.id.date);
-        category =  findViewById(R.id.category);
+        category = findViewById(R.id.category);
         quantity = findViewById(R.id.quantity);
         description = findViewById(R.id.description);
         title = findViewById(R.id.title);
@@ -61,7 +66,7 @@ public class OrderDetail extends AppCompatActivity {
         databaseReference.child("Cart").child(id).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
+                if (snapshot.exists()) {
                     Picasso.get().load(snapshot.child("image").getValue().toString()).into(adImage);
                     Picasso.get().load(snapshot.child("buyerImg").getValue().toString()).into(buyerProfile);
                     Picasso.get().load(snapshot.child("sellerImg").getValue().toString()).into(sellerProfile);
@@ -73,31 +78,29 @@ public class OrderDetail extends AppCompatActivity {
                     title.setText(snapshot.child("title").getValue().toString());
                     buyerId = snapshot.child("buyerId").getValue().toString();
                     sellerId = snapshot.child("sellerId").getValue().toString();
-                    buyerName.setText( snapshot.child("buyerName").getValue().toString());
-                    sellerName.setText( snapshot.child("sellerName").getValue().toString());
+                    buyerName.setText(snapshot.child("buyerName").getValue().toString());
+                    sellerName.setText(snapshot.child("sellerName").getValue().toString());
                     city.setText(snapshot.child("city").getValue().toString());
                     String s = snapshot.child("status").getValue().toString();
-                    if(s.equals("Complete")){
+                    if (s.equals("Complete")) {
                         complete.setVisibility(View.GONE);
                     }
-                    if(uid.equals(buyerId)){
+                    if (uid.equals(buyerId)) {
                         buyer.setVisibility(View.GONE);
                         complete.setVisibility(View.GONE);
-                    }
-                    else{
+                    } else {
                         seller.setVisibility(View.GONE);
                     }
                     chat.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            if(uid.equals(buyerId)){
+                            if (uid.equals(buyerId)) {
                                 buyer.setVisibility(View.GONE);
                                 complete.setVisibility(View.GONE);
                                 Intent o = new Intent(OrderDetail.this, Chat.class);
                                 o.putExtra("chaterId", sellerId);
                                 startActivity(o);
-                            }
-                            else{
+                            } else {
                                 seller.setVisibility(View.GONE);
                                 Intent o = new Intent(OrderDetail.this, Chat.class);
                                 o.putExtra("chaterId", buyerId);
@@ -107,11 +110,11 @@ public class OrderDetail extends AppCompatActivity {
                         }
                     });
 
-                    if(uid.equals(sellerId)){
+                    if (uid.equals(sellerId)) {
                         databaseReference.child("Users").child(buyerId).addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                if(snapshot.exists()){
+                                if (snapshot.exists()) {
                                     contact = snapshot.child("contact").getValue().toString();
                                 }
                             }
@@ -121,12 +124,11 @@ public class OrderDetail extends AppCompatActivity {
 
                             }
                         });
-                    }
-                    else{
+                    } else {
                         databaseReference.child("Users").child(sellerId).addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                if(snapshot.exists()){
+                                if (snapshot.exists()) {
                                     contact = snapshot.child("contact").getValue().toString();
                                 }
                             }
@@ -148,7 +150,7 @@ public class OrderDetail extends AppCompatActivity {
                     msg.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            Uri uri = Uri.parse("smsto:"+contact);
+                            Uri uri = Uri.parse("smsto:" + contact);
                             Intent it = new Intent(Intent.ACTION_SENDTO, uri);
                             it.putExtra("sms_body", " ");
                             startActivity(it);
@@ -194,7 +196,8 @@ public class OrderDetail extends AppCompatActivity {
                                 databaseReference.child("Users").child(sellerId).addValueEventListener(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                        if(snapshot.exists()){
+                                        if (snapshot.exists()) {
+                                        
                                             String contact = snapshot.child("contact").getValue().toString();
                                             String text = "Order Completed..";
                                             try {
@@ -204,6 +207,7 @@ public class OrderDetail extends AppCompatActivity {
                                                 Toast.makeText(getApplicationContext(), e.getMessage().toString(), Toast.LENGTH_LONG).show();
                                                 e.printStackTrace();
                                             }
+
                                         }
                                     }
 

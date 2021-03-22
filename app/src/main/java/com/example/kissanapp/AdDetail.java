@@ -2,10 +2,14 @@ package com.example.kissanapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.telephony.SmsManager;
@@ -25,15 +29,16 @@ import com.squareup.picasso.Picasso;
 
 public class AdDetail extends AppCompatActivity {
 
-    ImageView adImage , imgProfile, love;
-    TextView price , city , date , category , quantity , description , txtName ,title;
-    String pri , cit , dat , cat , quan , des , buyername ,sellername ,tit , img1 , buyerImg , sellerImg;
-    Button chat , call , msg , buy ;
+    ImageView adImage, imgProfile, love;
+    TextView price, city, date, category, quantity, description, txtName, title;
+    String pri, cit, dat, cat, quan, des, buyername, sellername, tit, img1, buyerImg, sellerImg;
+    Button chat, call, msg, buy;
     String id;
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     DatabaseReference databaseReference = firebaseDatabase.getReference();
-    String contact , userID;
+    String contact, userID;
     String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+    int PERMISSION_SEND_SMS = 123;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +50,7 @@ public class AdDetail extends AppCompatActivity {
         price = findViewById(R.id.price);
         city = findViewById(R.id.city);
         date = findViewById(R.id.date);
-        category =  findViewById(R.id.category);
+        category = findViewById(R.id.category);
         quantity = findViewById(R.id.quantity);
         description = findViewById(R.id.description);
         title = findViewById(R.id.title);
@@ -59,7 +64,7 @@ public class AdDetail extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
-                   love.setImageResource(R.drawable.fillheart);
+                    love.setImageResource(R.drawable.fillheart);
                 } else {
                     love.setImageResource(R.drawable.emptyheart);
                 }
@@ -95,7 +100,7 @@ public class AdDetail extends AppCompatActivity {
         databaseReference.child("Ads").child(id).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
+                if (snapshot.exists()) {
                     Picasso.get().load(snapshot.child("image").getValue().toString()).into(adImage);
                     price.setText(snapshot.child("price").getValue().toString());
                     date.setText(snapshot.child("date").getValue().toString());
@@ -116,7 +121,7 @@ public class AdDetail extends AppCompatActivity {
                     databaseReference.child("Users").child(userID).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if(snapshot.exists()){
+                            if (snapshot.exists()) {
                                 Picasso.get().load(snapshot.child("imageUrl").getValue().toString()).into(imgProfile);
                                 txtName.setText(snapshot.child("name").getValue().toString());
                                 contact = snapshot.child("contact").getValue().toString();
@@ -147,7 +152,7 @@ public class AdDetail extends AppCompatActivity {
         msg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Uri uri = Uri.parse("smsto:"+contact);
+                Uri uri = Uri.parse("smsto:" + contact);
                 Intent it = new Intent(Intent.ACTION_SENDTO, uri);
                 it.putExtra("sms_body", " ");
                 startActivity(it);
@@ -166,7 +171,7 @@ public class AdDetail extends AppCompatActivity {
                                 databaseReference.child("Ads").child(id).addValueEventListener(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                        if(snapshot.exists()){
+                                        if (snapshot.exists()) {
                                             img1 = snapshot.child("image").getValue().toString();
                                             pri = (snapshot.child("price").getValue().toString());
                                             dat = (snapshot.child("date").getValue().toString());
@@ -179,13 +184,13 @@ public class AdDetail extends AppCompatActivity {
                                             databaseReference.child("Users").child(userID).addValueEventListener(new ValueEventListener() {
                                                 @Override
                                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                                    if(snapshot.exists()){
+                                                    if (snapshot.exists()) {
                                                         sellername = (snapshot.child("name").getValue().toString());
                                                         sellerImg = snapshot.child("imageUrl").getValue().toString();
                                                         databaseReference.child("Users").child(uid).addValueEventListener(new ValueEventListener() {
                                                             @Override
                                                             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                                                if(snapshot.exists()){
+                                                                if (snapshot.exists()) {
                                                                     buyername = (snapshot.child("name").getValue().toString());
                                                                     buyerImg = snapshot.child("imageUrl").getValue().toString();
                                                                     String push = FirebaseDatabase.getInstance().getReference().child("Cart").push().getKey();
@@ -217,14 +222,14 @@ public class AdDetail extends AppCompatActivity {
                                                                     databaseReference.child("Notification").child(push2).child("id").setValue(push2);
 
                                                                     String push3 = FirebaseDatabase.getInstance().getReference().child("Notification").push().getKey();
-                                                                    databaseReference.child("Notification").child(push3).child("description").setValue("You have a Order");
+                                                                    databaseReference.child("Notification").child(push3).child("description").setValue("You have a new Order");
                                                                     databaseReference.child("Notification").child(push3).child("status").setValue("unread");
                                                                     databaseReference.child("Notification").child(push3).child("title").setValue("Order Alert");
                                                                     databaseReference.child("Notification").child(push3).child("receiverid").setValue(uid);
                                                                     databaseReference.child("Notification").child(push3).child("orderId").setValue(push);
                                                                     databaseReference.child("Notification").child(push3).child("id").setValue(push3);
 
-                                                                    Toast.makeText(getApplicationContext() , "Added to cart.." , Toast.LENGTH_LONG).show();
+                                                                    Toast.makeText(getApplicationContext(), "Added to cart..", Toast.LENGTH_LONG).show();
                                                                     buy.setVisibility(View.GONE);
                                                                 }
                                                             }
@@ -252,13 +257,14 @@ public class AdDetail extends AppCompatActivity {
                                 });
 
 
-
                                 databaseReference.child("Users").child(uid).addValueEventListener(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                        if(snapshot.exists()){
+                                        if (snapshot.exists()) {
+
+
                                             String name = snapshot.child("name").getValue().toString();
-                                            String text = "You have a new order from "+name;
+                                            String text = "You have a new order from " + name;
                                             try {
                                                 SmsManager smsManager = SmsManager.getDefault();
                                                 smsManager.sendTextMessage(contact, null, text, null, null);
@@ -266,7 +272,9 @@ public class AdDetail extends AppCompatActivity {
                                                 Toast.makeText(getApplicationContext(), e.getMessage().toString(), Toast.LENGTH_LONG).show();
                                                 e.printStackTrace();
                                             }
-                                            Toast.makeText(getApplicationContext() , "Added to cart.." , Toast.LENGTH_LONG).show();
+
+
+                                            Toast.makeText(getApplicationContext(), "Added to cart..", Toast.LENGTH_LONG).show();
                                         }
                                     }
 
