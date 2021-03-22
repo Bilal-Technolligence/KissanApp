@@ -32,7 +32,7 @@ public class ChatList extends BaseClass {
         //setContentView(R.layout.activity_chat_list);
         recyclerView=(RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        Toast.makeText(getApplicationContext() , "Msg" , Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext() , "Msg" , Toast.LENGTH_LONG).show();
         try {
             String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
             dref.child("ChatList").addListenerForSingleValueEvent(new ValueEventListener() {

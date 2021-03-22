@@ -78,7 +78,7 @@ public class MainActivity extends BaseClass {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this , FruitActivity.class);
-                i.putExtra("id" , "CEREALS");
+                i.putExtra("id" , "OPEN MARKET");
                 startActivity(i);
             }
         });

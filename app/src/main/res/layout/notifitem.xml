@@ -7,39 +7,53 @@
     card_view:cardCornerRadius="5dp"
     android:layout_margin="1dp"
     android:layout_height="wrap_content">
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center"
         android:elevation="16dp">
+
         <ImageView
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:src="@drawable/logo"
-            />
+            android:layout_alignParentStart="true"
+            android:layout_gravity="left"
+            android:layout_marginStart="1dp"
+            android:id="@+id/log"
+
+            android:src="@drawable/logo" />
+
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
             android:orientation="vertical"
-            android:padding="5dp"
-            >
+            android:padding="5dp">
+
             <TextView
+                android:id="@+id/notification_title"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Budget Alert"
-                android:textStyle="bold"
-                android:id="@+id/notification_title"
-                />
+                android:textStyle="bold" />
+
             <TextView
+                android:id="@+id/notification_description"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Notification Description"
-                android:id="@+id/notification_description"
-                />
+                android:text="Notification Description" />
 
         </LinearLayout>
 
-    </LinearLayout>
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="3dp"
+            android:id="@+id/delete"
+            android:layout_marginTop="15dp"
+            android:foregroundGravity="center"
+            android:src="@drawable/trash" />
+    </RelativeLayout>
 </androidx.cardview.widget.CardView>

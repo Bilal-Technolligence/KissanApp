@@ -10,6 +10,7 @@ public class AdAttr {
     String Price;
     String Category;
     String Quantity;
+    String City;
 
     public String getId() {
         return Id;
@@ -83,7 +84,15 @@ public class AdAttr {
         Quantity = quantity;
     }
 
-    public AdAttr(String id, String userId, String title, String description, String image, String date, String price, String category, String quantity) {
+    public String getCity() {
+        return City;
+    }
+
+    public void setCity(String city) {
+        City = city;
+    }
+
+    public AdAttr(String id, String userId, String title, String description, String image, String date, String price, String category, String quantity, String city) {
         Id = id;
         UserId = userId;
         Title = title;
@@ -93,6 +102,7 @@ public class AdAttr {
         Price = price;
         Category = category;
         Quantity = quantity;
+        City = city;
     }
 
     public AdAttr() {

@@ -45,7 +45,7 @@ public class NotificationsActivity extends BaseClass {
                         notificationAttrs.add(p);
                     }
                     Collections.reverse(notificationAttrs);
-                    recyclerView.setAdapter(new NotificationAdapter(notificationAttrs, NotificationsActivity.this));
+                    recyclerView.setAdapter(new NotificationAdapter(notificationAttrs,NotificationsActivity.this));
                 }
                 else
                     Toast.makeText(getApplicationContext() , "No notification found!" , Toast.LENGTH_LONG).show();

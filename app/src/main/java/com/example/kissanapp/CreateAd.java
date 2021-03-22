@@ -1,5 +1,6 @@
 package com.example.kissanapp;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -22,8 +23,11 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -33,21 +37,21 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class CreateAd extends AppCompatActivity {
-    EditText title, price, quantity, description;
+    EditText title, price, quantity, description ,city;
     ImageView img;
     Spinner category;
     String cat = "";
     private Uri imagePath;
     int count = 0;
     CardView post;
-    String tit, pri, qua, des;
+    String tit, pri, qua, des,cit;
     ProgressDialog progressDialog;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     final DatabaseReference reference = database.getReference("Ads");
     final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
      Calendar calendar;
      SimpleDateFormat dateFormat;
-     String date;
+     String date ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +64,7 @@ public class CreateAd extends AppCompatActivity {
         img = findViewById(R.id.image);
         category = findViewById(R.id.spinner_category);
         post = findViewById(R.id.post);
+        city = findViewById(R.id.city);
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Uploading please wait..... ");
         category.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -103,6 +108,7 @@ public class CreateAd extends AppCompatActivity {
                 pri = price.getText().toString();
                 qua = quantity.getText().toString();
                 des = description.getText().toString();
+                cit = city.getText().toString();
                 if (tit.equals("")) {
                     title.setError("Enter Valid Title");
                     title.setFocusable(true);
@@ -115,6 +121,9 @@ public class CreateAd extends AppCompatActivity {
                 } else if (qua.equals("")) {
                     quantity.setError("Enter Valid Quantity");
                     quantity.setFocusable(true);
+                }else if (cit.equals("")) {
+                    city.setError("Enter Valid City");
+                    city.setFocusable(true);
                 } else if (count == 0) {
                     Snackbar.make(view, "Please Select Image", Snackbar.LENGTH_LONG).show();
                 } else {
@@ -142,6 +151,7 @@ public class CreateAd extends AppCompatActivity {
                             adAttr.setDescription(des);
                             adAttr.setDate(date);
                             adAttr.setQuantity(qua);
+                            adAttr.setCity(cit.toUpperCase());
 
                             reference.child(push).setValue(adAttr);
 

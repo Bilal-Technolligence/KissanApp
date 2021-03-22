@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.kissanapp">
 
+    <uses-permission android:name="android.permission.SEND_SMS" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo"
@@ -9,8 +11,9 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.KissanApp">
-        <activity android:name=".AdDetail"></activity>
-        <activity android:name=".CreateAd"></activity>
+        <activity android:name=".OrderDetail"></activity>
+        <activity android:name=".AdDetail" />
+        <activity android:name=".CreateAd" />
         <activity android:name=".ChatList" />
         <activity android:name=".SearchActivity" />
         <activity android:name=".MyProfile" />

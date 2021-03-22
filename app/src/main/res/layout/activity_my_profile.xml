@@ -27,7 +27,7 @@
                     android:id="@+id/txtImg"
                     android:layout_width="110dp"
                     android:layout_height="110dp"
-                    android:src="@drawable/logo"
+                    android:src="@drawable/dp"
                     android:layout_gravity="center"
                     app:civ_border_color="#FFF"
                     app:civ_border_width="2dp" />
@@ -64,7 +64,7 @@
                     <ImageView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/dp"/>
+                        android:src="@drawable/call"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:id="@+id/txtPhone"
@@ -84,7 +84,7 @@
                     <ImageView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/dp"/>
+                        android:src="@drawable/location"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:id="@+id/txtCity"
@@ -104,7 +104,7 @@
                     <ImageView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/dp"/>
+                        android:src="@drawable/email"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:id="@+id/txtEmail"
@@ -125,7 +125,7 @@
                     <ImageView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/dp"/>
+                        android:src="@drawable/exit"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"

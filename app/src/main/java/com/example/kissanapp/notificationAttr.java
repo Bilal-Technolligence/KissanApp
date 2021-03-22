@@ -3,10 +3,10 @@ package com.example.kissanapp;
 public class notificationAttr {
     String receiverid;
     String title;
-    String date;
-    String time;
+    String id;
     String status;
     String description;
+    String orderId;
 
     public notificationAttr() {
     }
@@ -27,22 +27,6 @@ public class notificationAttr {
         this.title = title;
     }
 
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
-
     public String getStatus() {
         return status;
     }
@@ -59,12 +43,28 @@ public class notificationAttr {
         this.description = description;
     }
 
-    public notificationAttr(String receiverid, String title, String date, String time, String status, String description) {
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public notificationAttr(String receiverid, String title, String id, String status, String description, String orderId) {
         this.receiverid = receiverid;
         this.title = title;
-        this.date = date;
-        this.time = time;
+        this.id = id;
         this.status = status;
         this.description = description;
+        this.orderId = orderId;
     }
 }

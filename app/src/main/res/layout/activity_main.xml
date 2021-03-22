@@ -349,7 +349,7 @@
                             android:layout_width="140dp"
                             android:layout_height="140dp"
                             android:background="@color/white"
-                            android:src="@drawable/fruits"
+                            android:src="@drawable/fert"
                             app:civ_border_color="#FFF"
                             app:civ_border_width="2dp" />
 
@@ -390,7 +390,7 @@
                             android:layout_width="140dp"
                             android:layout_height="140dp"
                             android:background="@color/white"
-                            android:src="@drawable/vggg"
+                            android:src="@drawable/med"
                             app:civ_border_color="#FFF"
                             app:civ_border_width="2dp" />
 

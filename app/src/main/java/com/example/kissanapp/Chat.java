@@ -54,8 +54,8 @@ public class Chat extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
                     try {
-                        String name = dataSnapshot.child("fullname").getValue().toString();
-                        String pic = dataSnapshot.child("img").getValue().toString();
+                        String name = dataSnapshot.child("name").getValue().toString();
+                        String pic = dataSnapshot.child("imageUrl").getValue().toString();
                         textName.setText(name);
                         Picasso.get().load(pic).into(imageProfile);
                     }

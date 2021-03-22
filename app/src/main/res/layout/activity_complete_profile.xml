@@ -27,7 +27,7 @@
                     android:id="@+id/txtImg"
                     android:layout_width="110dp"
                     android:layout_height="110dp"
-                    android:src="@drawable/logo"
+                    android:src="@drawable/dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="20dp"
                     app:civ_border_color="#FFF"

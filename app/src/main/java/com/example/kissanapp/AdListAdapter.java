@@ -54,22 +54,8 @@ public class AdListAdapter extends RecyclerView.Adapter<AdListAdapter.ViewHolder
         holder.price.setText("RS " +adAttrs.get(position).getPrice());
         holder.description.setText(adAttrs.get(position).getDescription());
         holder.date.setText(adAttrs.get(position).getDate());
-
+        holder.city.setText(adAttrs.get(position).getCity());
         String userId = adAttrs.get(position).getUserId();
-        databaseReference.child("Users").child(userId).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
-                    String cit = snapshot.child("city").getValue().toString();
-                    holder.city.setText(cit);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
 
         String id = adAttrs.get(position).getId();
 
