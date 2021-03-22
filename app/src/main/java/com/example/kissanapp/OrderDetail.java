@@ -197,7 +197,6 @@ public class OrderDetail extends AppCompatActivity {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                                         if (snapshot.exists()) {
-                                        
                                             String contact = snapshot.child("contact").getValue().toString();
                                             String text = "Order Completed..";
                                             try {
