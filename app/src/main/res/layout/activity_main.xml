@@ -53,7 +53,7 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fruitCard"
                     android:layout_width="wrap_content"
-                    android:layout_height="200dp"
+                    android:layout_height="220dp"
                     android:layout_alignParentLeft="true"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
@@ -84,6 +84,14 @@
                             android:text="Fruits Market"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center"
+                            android:text="پھلوں کی منڈی"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
 
 
                     </LinearLayout>
@@ -93,7 +101,7 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/vegetableCard"
                     android:layout_width="wrap_content"
-                    android:layout_height="200dp"
+                    android:layout_height="220dp"
                     android:layout_alignParentRight="true"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
@@ -125,7 +133,14 @@
                             android:text="Vegetables Market"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
-
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center"
+                            android:text="سبزی منڈی"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
@@ -145,7 +160,7 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/animalCard"
                     android:layout_width="wrap_content"
-                    android:layout_height="200dp"
+                    android:layout_height="220dp"
                     android:layout_alignParentLeft="true"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
@@ -176,7 +191,14 @@
                             android:text="Animals Market"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
-
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center"
+                            android:text="جانوروں کی منڈی"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
 
                     </LinearLayout>
 
@@ -185,7 +207,7 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/chickenCard"
                     android:layout_width="wrap_content"
-                    android:layout_height="200dp"
+                    android:layout_height="220dp"
                     android:layout_alignParentRight="true"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
@@ -217,6 +239,14 @@
                             android:text="Chicken Market"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center"
+                            android:text="چکن مارکیٹ"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
 
                     </LinearLayout>
 
@@ -238,7 +268,7 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/riceCard"
                     android:layout_width="wrap_content"
-                    android:layout_height="200dp"
+                    android:layout_height="220dp"
                     android:layout_alignParentLeft="true"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
@@ -269,7 +299,14 @@
                             android:text="Wheat, Rice Market"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
-
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center"
+                            android:text="گندم ، چاول کی منڈی"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
 
                     </LinearLayout>
 
@@ -278,7 +315,7 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/tractorCard"
                     android:layout_width="wrap_content"
-                    android:layout_height="200dp"
+                    android:layout_height="220dp"
                     android:layout_alignParentRight="true"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
@@ -312,6 +349,14 @@
                             android:textColor="@color/black"
                             android:textStyle="bold" />
 
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center"
+                            android:text="کھلی منڈی"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
@@ -330,7 +375,7 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fertilizer"
                     android:layout_width="wrap_content"
-                    android:layout_height="200dp"
+                    android:layout_height="220dp"
                     android:layout_alignParentLeft="true"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
@@ -361,7 +406,14 @@
                             android:text="Fertilizer"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
-
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center"
+                            android:text="کھادیں"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
 
                     </LinearLayout>
 
@@ -370,7 +422,7 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/sprayMedicine"
                     android:layout_width="wrap_content"
-                    android:layout_height="200dp"
+                    android:layout_height="220dp"
                     android:layout_alignParentRight="true"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
@@ -402,7 +454,14 @@
                             android:text="Spray/Medicine"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
-
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center"
+                            android:text="سپرے / دوائی"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
