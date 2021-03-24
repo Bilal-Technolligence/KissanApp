@@ -179,7 +179,7 @@
                             android:layout_width="140dp"
                             android:layout_height="140dp"
                             android:background="@color/white"
-                            android:src="@drawable/logo"
+                            android:src="@drawable/amimal"
                             app:civ_border_color="#FFF"
                             app:civ_border_width="2dp" />
 
