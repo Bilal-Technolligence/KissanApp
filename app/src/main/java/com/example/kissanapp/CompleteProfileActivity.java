@@ -15,6 +15,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -40,7 +42,8 @@ public class CompleteProfileActivity extends AppCompatActivity {
     int count = 0;
     String userGmail, userPassword;
     FirebaseAuth firebaseAuth;
-
+    RadioGroup radioGroup;
+    RadioButton language;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     final DatabaseReference reference = database.getReference("Users");
 
@@ -59,6 +62,7 @@ public class CompleteProfileActivity extends AppCompatActivity {
         userGmail = getIntent().getStringExtra("Email");
         userPassword = getIntent().getStringExtra("Password");
         email.setText(String.valueOf(userGmail));
+        radioGroup=(RadioGroup)findViewById(R.id.radioGroup);
         profileImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,6 +78,7 @@ public class CompleteProfileActivity extends AppCompatActivity {
                 String Email = email.getText().toString();
                 String Contact = phone.getText().toString();
                 String City = city.getText().toString();
+                int selectedId = radioGroup.getCheckedRadioButtonId();
                 if (Name.equals("")) {
                     name.setError("Enter Valid Name");
                     name.setFocusable(true);
@@ -88,16 +93,22 @@ public class CompleteProfileActivity extends AppCompatActivity {
                     city.setFocusable(true);
                 } else if (count == 0) {
                     Toast.makeText(getApplicationContext(), "Please select an image.", Toast.LENGTH_SHORT).show();
-                } else {
+                }
+                else if(selectedId==-1){
+                    Toast.makeText(getApplicationContext(),"Nothing selected", Toast.LENGTH_SHORT).show();
+                }
+                else {
                     progressDialog.show();
-                    RegisterUser(Email, userPassword, Contact, Name, City, imagePath, progressDialog);
+                    language = (RadioButton) findViewById(selectedId);
+                    String lan = language.getText().toString();
+                    RegisterUser(Email, userPassword, Contact, Name, City, imagePath, progressDialog , lan);
 
                 }
             }
         });
     }
 
-    public void RegisterUser(final String userGmail, String userPassword, final String contact, final String name, final String city, final Uri imagePath, final ProgressDialog progressDialog) {
+    public void RegisterUser(final String userGmail, String userPassword, final String contact, final String name, final String city, final Uri imagePath, final ProgressDialog progressDialog , final String language) {
         firebaseAuth.getInstance().createUserWithEmailAndPassword(userGmail, userPassword)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -120,6 +131,7 @@ public class CompleteProfileActivity extends AppCompatActivity {
                                     userAttr.setId(uid);
                                     userAttr.setCity(city.toLowerCase());
                                     userAttr.setImageUrl(downloadUri.toString());
+                                    userAttr.setLanguage(language);
                                     reference.child(uid).setValue(userAttr);
 
                                     Toast.makeText(getApplicationContext(), "Account Created", Toast.LENGTH_SHORT).show();
