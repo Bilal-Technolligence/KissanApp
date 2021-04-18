@@ -7,6 +7,7 @@ public class UserAttr {
     String Contact;
     String ImageUrl;
     String City;
+    String Language;
 
     public String getId() {
         return Id;
@@ -56,13 +57,22 @@ public class UserAttr {
         City = city;
     }
 
-    public UserAttr(String id, String name, String email, String contact, String imageUrl, String city) {
+    public String getLanguage() {
+        return Language;
+    }
+
+    public void setLanguage(String language) {
+        Language = language;
+    }
+
+    public UserAttr(String id, String name, String email, String contact, String imageUrl, String city, String language) {
         Id = id;
         Name = name;
         Email = email;
         Contact = contact;
         ImageUrl = imageUrl;
         City = city;
+        Language = language;
     }
 
     public UserAttr() {

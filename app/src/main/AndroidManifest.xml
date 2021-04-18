@@ -3,6 +3,8 @@
     package="com.example.kissanapp">
 
     <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -27,24 +29,28 @@
         <activity android:name=".Chat" />
         <activity android:name=".FruitActivity" />
         <activity android:name=".ChickenActivity" />
-        <activity android:name=".CompleteProfileActivity" />
+        <activity android:name=".CompleteProfileActivity" >
+
+        </activity>
         <activity
             android:name=".LogInActivity"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" >
+
+        </activity>
         <activity
             android:name=".SignUpActivity"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
             android:name=".SplashScreen"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" >
+
+        </activity>
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".MainActivity">
-
         </activity>
     </application>
 
