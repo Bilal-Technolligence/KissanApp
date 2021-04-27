@@ -58,6 +58,7 @@ public class MainActivity extends BaseClass {
         verificationLayout = (LinearLayout) findViewById(R.id.emailVerificationLayout);
         navigationView = (BottomNavigationView) findViewById(R.id.navigationView);
         topLinearLayout = (LinearLayout) findViewById(R.id.topLayout);
+        firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
         if (!firebaseUser.isEmailVerified()) {
             verificationLayout.setVisibility(View.VISIBLE);

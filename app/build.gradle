@@ -50,4 +50,5 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore:22.0.1'
     implementation 'com.google.firebase:firebase-auth'
     implementation 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
+
 }
