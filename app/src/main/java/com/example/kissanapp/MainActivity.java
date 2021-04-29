@@ -1,5 +1,6 @@
 package com.example.kissanapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
@@ -10,10 +11,18 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends BaseClass {
     CardView btnFruit, btnRice, btnChicken, btnVegetables, btnTractor, btnAnimales , btnFertilizer , btnSpray;
     LinearLayout search;
+    TextView fE , fU , vE, vU, aE, aU, cE, cU,rE,rU, oE, oU, feE , feU, mE , mU, sear;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +37,60 @@ public class MainActivity extends BaseClass {
         btnFertilizer = (CardView) findViewById(R.id.fertilizer);
         btnSpray = (CardView) findViewById(R.id.sprayMedicine);
         search = findViewById(R.id.search);
+        sear= findViewById(R.id.txts);
+        fE = findViewById(R.id.txtFruitE);
+        fU= findViewById(R.id.txtFruitU);
+        vE= findViewById(R.id.txtVegE);
+        vU= findViewById(R.id.txtVegU);
+        aE= findViewById(R.id.txtAniE);
+        aU= findViewById(R.id.txtAniU);
+        cE= findViewById(R.id.txtChiE);
+        cU= findViewById(R.id.txtChiU);
+        rE= findViewById(R.id.txtRicE);
+        rU= findViewById(R.id.txtRicU);
+        oE= findViewById(R.id.txtOpeE);
+        oU= findViewById(R.id.txtOpeU);
+        feE= findViewById(R.id.txtFerE);
+        feU= findViewById(R.id.txtFerU);
+        mE= findViewById(R.id.txtMedE);
+        mU= findViewById(R.id.txtMedU);
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        database.getReference("Users").child(uid).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    String lan = snapshot.child("language").getValue().toString();
+                    if (lan.equals("English")) {
+                        fU.setVisibility(View.GONE);
+                        vU.setVisibility(View.GONE);
+                        aU.setVisibility(View.GONE);
+                        cU.setVisibility(View.GONE);
+                        rU.setVisibility(View.GONE);
+                        oU.setVisibility(View.GONE);
+                        feU.setVisibility(View.GONE);
+                        mU.setVisibility(View.GONE);
+                    }
+                    else
+                    {
+                        fE.setVisibility(View.GONE);
+                        vE.setVisibility(View.GONE);
+                        aE.setVisibility(View.GONE);
+                        cE.setVisibility(View.GONE);
+                        rE.setVisibility(View.GONE);
+                        oE.setVisibility(View.GONE);
+                        feE.setVisibility(View.GONE);
+                        mE.setVisibility(View.GONE);
+                        sear.setText("تلاش کریں");
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

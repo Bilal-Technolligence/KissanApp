@@ -23,6 +23,8 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:gravity="bottom"
+            android:id="@+id/txts"
+            android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
             android:text="Search here"
             android:textSize="20dp"/>
@@ -81,6 +83,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:gravity="center"
+                            android:id="@+id/txtFruitE"
                             android:text="Fruits Market"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
@@ -89,6 +92,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:gravity="center"
+                            android:id="@+id/txtFruitU"
                             android:text="پھلوں کی منڈی"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
@@ -130,6 +134,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:gravity="center"
+                            android:id="@+id/txtVegE"
                             android:text="Vegetables Market"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
@@ -138,6 +143,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:gravity="center"
+                            android:id="@+id/txtVegU"
                             android:text="سبزی منڈی"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
@@ -188,6 +194,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:gravity="center"
+                            android:id="@+id/txtAniE"
                             android:text="Animals Market"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
@@ -196,6 +203,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:gravity="center"
+                            android:id="@+id/txtAniU"
                             android:text="جانوروں کی منڈی"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
@@ -236,6 +244,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:gravity="center"
+                            android:id="@+id/txtChiE"
                             android:text="Chicken Market"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
@@ -244,6 +253,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:gravity="center"
+                            android:id="@+id/txtChiU"
                             android:text="چکن مارکیٹ"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
@@ -296,6 +306,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:gravity="center"
+                            android:id="@+id/txtRicE"
                             android:text="Wheat, Rice Market"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
@@ -304,6 +315,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:gravity="center"
+                            android:id="@+id/txtRicU"
                             android:text="گندم ، چاول کی منڈی"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
@@ -345,6 +357,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:gravity="center"
+                            android:id="@+id/txtOpeE"
                             android:text="Open Market"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
@@ -354,6 +367,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:gravity="center"
+                            android:id="@+id/txtOpeU"
                             android:text="کھلی منڈی"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
@@ -403,6 +417,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:gravity="center"
+                            android:id="@+id/txtFerE"
                             android:text="Fertilizer"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
@@ -411,6 +426,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:gravity="center"
+                            android:id="@+id/txtFerU"
                             android:text="کھادیں"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
@@ -451,6 +467,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:gravity="center"
+                            android:id="@+id/txtMedE"
                             android:text="Spray/Medicine"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
@@ -459,6 +476,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:gravity="center"
+                            android:id="@+id/txtMedU"
                             android:text="سپرے / دوائی"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
