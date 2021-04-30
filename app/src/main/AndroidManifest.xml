@@ -14,7 +14,13 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.KissanApp">
-        <activity android:name=".OrderDetail"/>
+        <activity android:name=".MapActivity"></activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/map_key" />
+
+        <activity android:name=".OrderDetail" />
         <activity android:name=".AdDetail" />
         <activity android:name=".CreateAd" />
         <activity android:name=".ChatList" />
@@ -30,29 +36,24 @@
         <activity android:name=".Chat" />
         <activity android:name=".FruitActivity" />
         <activity android:name=".ChickenActivity" />
-        <activity android:name=".CompleteProfileActivity" >
-
-        </activity>
+        <activity android:name=".CompleteProfileActivity"></activity>
         <activity
             android:name=".LogInActivity"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" >
-
-        </activity>
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"></activity>
         <activity
             android:name=".SignUpActivity"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
             android:name=".SplashScreen"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" >
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity"></activity>
+        <receiver android:name=".NotificationGernetor" />
     </application>
 
 </manifest>
