@@ -3,26 +3,51 @@ package com.example.kissanapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.app.NotificationCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.app.AlarmManager;
+import android.app.Notification;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends BaseClass {
     CardView btnFruit, btnRice, btnChicken, btnVegetables, btnTractor, btnAnimales , btnFertilizer , btnSpray;
     LinearLayout search;
-    TextView fE , fU , vE, vU, aE, aU, cE, cU,rE,rU, oE, oU, feE , feU, mE , mU, sear;
+    FirebaseAuth firebaseAuth;
+    protected LinearLayout verificationLayout,topLinearLayout;
+    protected BottomNavigationView navigationView;
+    TextView verifyEmail;
+    Button btnResendVerificationCode,btnVerifyLogin;
+    final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+    FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+    DatabaseReference databaseReference = firebaseDatabase.getReference();
+    public static final String NOTIFICATION_CHANNEL_ID = "10001";
+    private final static String default_notification_channel_id = "default";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,60 +62,102 @@ public class MainActivity extends BaseClass {
         btnFertilizer = (CardView) findViewById(R.id.fertilizer);
         btnSpray = (CardView) findViewById(R.id.sprayMedicine);
         search = findViewById(R.id.search);
-        sear= findViewById(R.id.txts);
-        fE = findViewById(R.id.txtFruitE);
-        fU= findViewById(R.id.txtFruitU);
-        vE= findViewById(R.id.txtVegE);
-        vU= findViewById(R.id.txtVegU);
-        aE= findViewById(R.id.txtAniE);
-        aU= findViewById(R.id.txtAniU);
-        cE= findViewById(R.id.txtChiE);
-        cU= findViewById(R.id.txtChiU);
-        rE= findViewById(R.id.txtRicE);
-        rU= findViewById(R.id.txtRicU);
-        oE= findViewById(R.id.txtOpeE);
-        oU= findViewById(R.id.txtOpeU);
-        feE= findViewById(R.id.txtFerE);
-        feU= findViewById(R.id.txtFerU);
-        mE= findViewById(R.id.txtMedE);
-        mU= findViewById(R.id.txtMedU);
-        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        database.getReference("Users").child(uid).addValueEventListener(new ValueEventListener() {
+        ///Email Verification
+        verifyEmail = (TextView) findViewById(R.id.txtEmailVerify);
+        btnResendVerificationCode = (Button) findViewById(R.id.btnVerifyEmail);
+        btnVerifyLogin = (Button) findViewById(R.id.btnVerifyLogin);
+        verificationLayout = (LinearLayout) findViewById(R.id.emailVerificationLayout);
+        navigationView = (BottomNavigationView) findViewById(R.id.navigationView);
+        topLinearLayout = (LinearLayout) findViewById(R.id.topLayout);
+        firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+        if (!firebaseUser.isEmailVerified()) {
+            verificationLayout.setVisibility(View.VISIBLE);
+            topLinearLayout.setVisibility(View.GONE);
+            navigationView.setVisibility(View.GONE);
+            btnResendVerificationCode.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+                    firebaseUser.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Toast.makeText(MainActivity.this, "Verification Email has been Sent", Toast.LENGTH_SHORT).show();
+
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            String Tag = "";
+                            Log.e(Tag, "on Failure:Email not sent" + e.getMessage());
+
+                        }
+                    });
+                }
+            });
+            btnVerifyLogin.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Save.save(getApplicationContext(),"session","false");
+                    startActivity(new Intent(MainActivity.this , LogInActivity.class));
+                    finish();
+                }
+            });
+        }
+        ///Email Verification code end
+
+
+
+        //Check Notifications
+
+        Thread thread = new Thread(new Runnable() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    String lan = snapshot.child("language").getValue().toString();
-                    if (lan.equals("English")) {
-                        fU.setVisibility(View.GONE);
-                        vU.setVisibility(View.GONE);
-                        aU.setVisibility(View.GONE);
-                        cU.setVisibility(View.GONE);
-                        rU.setVisibility(View.GONE);
-                        oU.setVisibility(View.GONE);
-                        feU.setVisibility(View.GONE);
-                        mU.setVisibility(View.GONE);
-                    }
-                    else
-                    {
-                        fE.setVisibility(View.GONE);
-                        vE.setVisibility(View.GONE);
-                        aE.setVisibility(View.GONE);
-                        cE.setVisibility(View.GONE);
-                        rE.setVisibility(View.GONE);
-                        oE.setVisibility(View.GONE);
-                        feE.setVisibility(View.GONE);
-                        mE.setVisibility(View.GONE);
-                        sear.setText("تلاش کریں");
+            public void run() {
+                while (0 <= 1) {
+                    try {
+                        Thread.sleep(5000);
+                        final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+//                        Toast.makeText(MainActivity.this, ""+uid, Toast.LENGTH_LONG).show();
+                        final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+                        databaseReference.child("Notification").addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                if (dataSnapshot.exists()) {
+                                    for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                                        try {
+                                            String status = dataSnapshot1.child("status").getValue().toString();
+                                            String senderId = dataSnapshot1.child("receiverid").getValue().toString();
+                                            if (status.equals("unread") && uid.equals(senderId)) {
+                                                String id = dataSnapshot1.child("id").getValue().toString();
+                                                // String name = dataSnapshot1.child("name").getValue().toString();
+                                                String msg = dataSnapshot1.child("description").getValue().toString();
+                                                databaseReference.child("Notification").child(id).child("status").setValue("read");
+                                                scheduleNotification(getNotification(msg), 5000);
+
+                                            }
+                                        } catch (Exception e) {
+                                        }
+                                    }
+
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+
+
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
                 }
             }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
         });
+        thread.start();
+        // return START_STICKY;
+////////////////////////////////////////////
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -162,6 +229,32 @@ public class MainActivity extends BaseClass {
             }
         });
 
+    }
+
+
+    private void scheduleNotification(Notification notification, int delay) {
+        Intent notificationIntent = new Intent(this, NotificationGernetor.class);
+        // Intent notificationIintent = new Intent(this, NotificationActivity.class);
+        notificationIntent.putExtra(NotificationGernetor.NOTIFICATION_ID, 1);
+        notificationIntent.putExtra(NotificationGernetor.NOTIFICATION, notification);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        long futureInMillis = SystemClock.elapsedRealtime() + delay;
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        assert alarmManager != null;
+        alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, futureInMillis, pendingIntent);
+    }
+
+    private Notification getNotification(String content) {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, default_notification_channel_id);
+        builder.setContentTitle("New Ad Notification");
+        Intent intent = new Intent(this, NotificationsActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+        builder.setContentIntent(pendingIntent);
+        builder.setContentText(content);
+        builder.setSmallIcon(R.drawable.ic_launcher_foreground);
+        builder.setAutoCancel(true);
+        builder.setChannelId(NOTIFICATION_CHANNEL_ID);
+        return builder.build();
     }
 
     @Override

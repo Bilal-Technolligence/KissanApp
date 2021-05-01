@@ -15,10 +15,19 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Welcome to Kissan App"
+            android:text="Welcome to Khushhal Kisan App"
             android:textStyle="bold"
             android:textColor="@color/white"
-            android:textSize="25dp"
+            android:textSize="18sp"
+            android:gravity="center"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="خوشحال کسان ایپ میں خوش آمدید"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="18sp"
             android:gravity="center"/>
 
         <ImageView
