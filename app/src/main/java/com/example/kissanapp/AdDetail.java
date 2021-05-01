@@ -124,7 +124,7 @@ public class AdDetail extends AppCompatActivity {
                                         public void onClick(View view) {
                                             Intent o = new Intent(AdDetail.this, MapActivity.class);
                                             o.putExtra("lat", lat);
-                                            o.putExtra("lat", lat);
+                                            o.putExtra("lon", lon);
                                             startActivity(o);
                                         }
                                     });
@@ -387,7 +387,7 @@ public class AdDetail extends AppCompatActivity {
                                         public void onClick(View view) {
                                             Intent o = new Intent(AdDetail.this, MapActivity.class);
                                             o.putExtra("lat", lat);
-                                            o.putExtra("lat", lat);
+                                            o.putExtra("lon", lon);
                                             startActivity(o);
                                         }
                                     });

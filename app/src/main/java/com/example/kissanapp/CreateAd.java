@@ -128,6 +128,8 @@ public class CreateAd extends AppCompatActivity {
                                                     System.out.println(address.get(0).getCountryName());
                                                     address1 = address.get(0).getAddressLine(0);
                                                     city.setText(address1);
+                                                    lati = (String.valueOf(latitude));
+                                                    loni = (String.valueOf(longitude));
                                                     // Toast.makeText(getApplicationContext() , address.get(0).getAddressLine(0) , Toast.LENGTH_LONG).show();
                                                 }
                                                 String finalAddress = builder.toString(); //This is the complete address.
@@ -294,6 +296,7 @@ public class CreateAd extends AppCompatActivity {
                                                     System.out.println(address.get(0).getCountryName());
                                                     address1 = address.get(0).getAddressLine(0);
                                                     city.setText(address1);
+
                                                     // Toast.makeText(getApplicationContext() , address.get(0).getAddressLine(0) , Toast.LENGTH_LONG).show();
                                                 }
                                                 String finalAddress = builder.toString(); //This is the complete address.
@@ -399,6 +402,8 @@ public class CreateAd extends AppCompatActivity {
                                             adAttr.setDate(date);
                                             adAttr.setQuantity(qua);
                                             adAttr.setCity(cit.toUpperCase());
+                                            adAttr.setLon(loni);
+                                            adAttr.setLat(lati);
 
                                             reference.child(push).setValue(adAttr);
 

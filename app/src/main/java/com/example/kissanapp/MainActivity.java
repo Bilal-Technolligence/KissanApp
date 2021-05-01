@@ -42,7 +42,7 @@ public class MainActivity extends BaseClass {
     protected BottomNavigationView navigationView;
     TextView verifyEmail;
     Button btnResendVerificationCode, btnVerifyLogin;
-    final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+    String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     DatabaseReference databaseReference = firebaseDatabase.getReference();
     public static final String NOTIFICATION_CHANNEL_ID = "10001";

@@ -31,13 +31,15 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
         longitude = getIntent().getStringExtra("lon");
         latitude = getIntent().getStringExtra("lat");
+
+        lat1 = Double.valueOf(latitude);
+        long1 = Double.valueOf(longitude);
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
-        mMap.addMarker(new MarkerOptions().position(new LatLng(lat1 , long1))).setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW));
+        mMap.addMarker(new MarkerOptions().position(new LatLng(lat1 , long1)));
 
         LatLng isb = new LatLng(lat1, long1);
         mMap.moveCamera(CameraUpdateFactory.newLatLng(isb));
