@@ -35,18 +35,19 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends BaseClass {
-    CardView btnFruit, btnRice, btnChicken, btnVegetables, btnTractor, btnAnimales , btnFertilizer , btnSpray;
+    CardView btnFruit, btnRice, btnChicken, btnVegetables, btnTractor, btnAnimales, btnFertilizer, btnSpray;
     LinearLayout search;
     FirebaseAuth firebaseAuth;
-    protected LinearLayout verificationLayout,topLinearLayout;
+    protected LinearLayout verificationLayout, topLinearLayout;
     protected BottomNavigationView navigationView;
     TextView verifyEmail;
-    Button btnResendVerificationCode,btnVerifyLogin;
+    Button btnResendVerificationCode, btnVerifyLogin;
     final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     DatabaseReference databaseReference = firebaseDatabase.getReference();
     public static final String NOTIFICATION_CHANNEL_ID = "10001";
     private final static String default_notification_channel_id = "default";
+    TextView fE, fU, vE, vU, aE, aU, cE, cU, rE, rU, oE, oU,feE , feU, mE, mU ,sea;
 
 
     @Override
@@ -61,7 +62,76 @@ public class MainActivity extends BaseClass {
         btnTractor = (CardView) findViewById(R.id.tractorCard);
         btnFertilizer = (CardView) findViewById(R.id.fertilizer);
         btnSpray = (CardView) findViewById(R.id.sprayMedicine);
+        sea = findViewById(R.id.txts);
         search = findViewById(R.id.search);
+        fE = findViewById(R.id.txtFruitE);
+        fU = findViewById(R.id.txtFruitU);
+        vE = findViewById(R.id.txtVegE);
+        vU = findViewById(R.id.txtVegU);
+        aE = findViewById(R.id.txtAniE);
+        aU = findViewById(R.id.txtAniU);
+        cE = findViewById(R.id.txtChiE);
+        cU = findViewById(R.id.txtChiU);
+        rE = findViewById(R.id.txtRicE);
+        rU = findViewById(R.id.txtRicU);
+        oE = findViewById(R.id.txtOpeE);
+        oU = findViewById(R.id.txtOpeU);
+        feE = findViewById(R.id.txtFerE);
+        feU = findViewById(R.id.txtFerU);
+        mE = findViewById(R.id.txtMedE);
+        mU = findViewById(R.id.txtMedU);
+
+        fE.setVisibility(View.GONE);
+        fU.setVisibility(View.GONE);
+        vE.setVisibility(View.GONE);
+        vU.setVisibility(View.GONE);
+        aE.setVisibility(View.GONE);
+        aU.setVisibility(View.GONE);
+        cE.setVisibility(View.GONE);
+        cU.setVisibility(View.GONE);
+        rE.setVisibility(View.GONE);
+        rU.setVisibility(View.GONE);
+        oE.setVisibility(View.GONE);
+        oU.setVisibility(View.GONE);
+        feE.setVisibility(View.GONE);
+        feU.setVisibility(View.GONE);
+        mE.setVisibility(View.GONE);
+        mU.setVisibility(View.GONE);
+        firebaseDatabase.getReference("Users").child(uid).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    String lan = snapshot.child("language").getValue().toString();
+                    if (lan.equals("English")) {
+                        fE.setVisibility(View.VISIBLE);
+                        vE.setVisibility(View.VISIBLE);
+                        aE.setVisibility(View.VISIBLE);
+                        cE.setVisibility(View.VISIBLE);
+                        rE.setVisibility(View.VISIBLE);
+                        oE.setVisibility(View.VISIBLE);
+                        feE.setVisibility(View.VISIBLE);
+                        mE.setVisibility(View.VISIBLE);
+                    }
+                    else {
+                        fU.setVisibility(View.VISIBLE);
+                        vU.setVisibility(View.VISIBLE);
+                        aU.setVisibility(View.VISIBLE);
+                        cU.setVisibility(View.VISIBLE);
+                        rU.setVisibility(View.VISIBLE);
+                        oU.setVisibility(View.VISIBLE);
+                        feU.setVisibility(View.VISIBLE);
+                        mU.setVisibility(View.VISIBLE);
+                        sea.setText("تلاش کریں");
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         ///Email Verification
         verifyEmail = (TextView) findViewById(R.id.txtEmailVerify);
         btnResendVerificationCode = (Button) findViewById(R.id.btnVerifyEmail);
@@ -98,14 +168,13 @@ public class MainActivity extends BaseClass {
             btnVerifyLogin.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Save.save(getApplicationContext(),"session","false");
-                    startActivity(new Intent(MainActivity.this , LogInActivity.class));
+                    Save.save(getApplicationContext(), "session", "false");
+                    startActivity(new Intent(MainActivity.this, LogInActivity.class));
                     finish();
                 }
             });
         }
         ///Email Verification code end
-
 
 
         //Check Notifications
@@ -167,64 +236,64 @@ public class MainActivity extends BaseClass {
         btnFruit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this , FruitActivity.class);
-                i.putExtra("id" , "FRUITS");
+                Intent i = new Intent(MainActivity.this, FruitActivity.class);
+                i.putExtra("id", "FRUITS");
                 startActivity(i);
             }
         });
         btnVegetables.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this , FruitActivity.class);
-                i.putExtra("id" , "VEGETABLES");
+                Intent i = new Intent(MainActivity.this, FruitActivity.class);
+                i.putExtra("id", "VEGETABLES");
                 startActivity(i);
             }
         });
         btnAnimales.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this , FruitActivity.class);
-                i.putExtra("id" , "ANIMALS");
+                Intent i = new Intent(MainActivity.this, FruitActivity.class);
+                i.putExtra("id", "ANIMALS");
                 startActivity(i);
             }
         });
         btnChicken.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this , FruitActivity.class);
-                i.putExtra("id" , "POULTRY MARKET");
+                Intent i = new Intent(MainActivity.this, FruitActivity.class);
+                i.putExtra("id", "POULTRY MARKET");
                 startActivity(i);
             }
         });
         btnRice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this , FruitActivity.class);
-                i.putExtra("id" , "CEREALS");
+                Intent i = new Intent(MainActivity.this, FruitActivity.class);
+                i.putExtra("id", "CEREALS");
                 startActivity(i);
             }
         });
         btnTractor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this , FruitActivity.class);
-                i.putExtra("id" , "OPEN MARKET");
+                Intent i = new Intent(MainActivity.this, FruitActivity.class);
+                i.putExtra("id", "OPEN MARKET");
                 startActivity(i);
             }
         });
         btnFertilizer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this , FruitActivity.class);
-                i.putExtra("id" , "FERTILIZER");
+                Intent i = new Intent(MainActivity.this, FruitActivity.class);
+                i.putExtra("id", "FERTILIZER");
                 startActivity(i);
             }
         });
         btnSpray.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this , FruitActivity.class);
-                i.putExtra("id" , "MEDICINE");
+                Intent i = new Intent(MainActivity.this, FruitActivity.class);
+                i.putExtra("id", "MEDICINE");
                 startActivity(i);
             }
         });

@@ -233,6 +233,8 @@ public class CreateAd extends AppCompatActivity {
                                             adAttr.setDate(date);
                                             adAttr.setQuantity(qua);
                                             adAttr.setCity(cit.toUpperCase());
+                                            adAttr.setLat(lati);
+                                            adAttr.setLon(loni);
 
                                             reference.child(push).setValue(adAttr);
 
