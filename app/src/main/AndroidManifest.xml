@@ -39,13 +39,13 @@
         <activity android:name=".CompleteProfileActivity"></activity>
         <activity
             android:name=".LogInActivity"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"></activity>
+            android:theme="@style/AppMaterialTheme"></activity>
         <activity
             android:name=".SignUpActivity"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
+            android:theme="@style/AppMaterialTheme" />
         <activity
             android:name=".SplashScreen"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
+            android:theme="@style/AppFullScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
