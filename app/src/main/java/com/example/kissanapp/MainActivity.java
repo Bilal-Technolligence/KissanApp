@@ -47,7 +47,7 @@ public class MainActivity extends BaseClass {
     DatabaseReference databaseReference = firebaseDatabase.getReference();
     public static final String NOTIFICATION_CHANNEL_ID = "10001";
     private final static String default_notification_channel_id = "default";
-    TextView fE, fU, vE, vU, aE, aU, cE, cU, rE, rU, oE, oU,feE , feU, mE, mU;
+    TextView fE, fU, vE, vU, aE, aU, cE, cU, rE, rU, oE, oU,feE , feU, mE, mU ,sea;
 
 
     @Override
@@ -62,6 +62,7 @@ public class MainActivity extends BaseClass {
         btnTractor = (CardView) findViewById(R.id.tractorCard);
         btnFertilizer = (CardView) findViewById(R.id.fertilizer);
         btnSpray = (CardView) findViewById(R.id.sprayMedicine);
+        sea = findViewById(R.id.txts);
         search = findViewById(R.id.search);
         fE = findViewById(R.id.txtFruitE);
         fU = findViewById(R.id.txtFruitU);
@@ -120,6 +121,7 @@ public class MainActivity extends BaseClass {
                         oU.setVisibility(View.VISIBLE);
                         feU.setVisibility(View.VISIBLE);
                         mU.setVisibility(View.VISIBLE);
+                        sea.setText("تلاش کریں");
                     }
                 }
             }
