@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.common.collect.Maps;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,8 +33,8 @@ public class AdDetail extends AppCompatActivity {
     ImageView adImage, imgProfile, love;
     TextView price, city, date, category, quantity, description, txtName, title;
     String pri, cit, dat, cat, quan, des, buyername, sellername, tit, img1, buyerImg, sellerImg;
-    Button chat, call, msg, buy;
-    String id;
+    Button chat, call, msg, buy , direction;
+    String id , lat, lon;
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     DatabaseReference databaseReference = firebaseDatabase.getReference();
     String contact, userID;
@@ -65,6 +66,7 @@ public class AdDetail extends AppCompatActivity {
                         call = findViewById(R.id.call);
                         msg = findViewById(R.id.message);
                         buy = findViewById(R.id.buy);
+                        direction = findViewById(R.id.direction);
                         id = getIntent().getStringExtra("id");
                         databaseReference.child("Like").child(uid).child(id).addValueEventListener(new ValueEventListener() {
                             @Override
@@ -115,6 +117,17 @@ public class AdDetail extends AppCompatActivity {
                                     description.setText(snapshot.child("description").getValue().toString());
                                     title.setText(snapshot.child("title").getValue().toString());
                                     userID = snapshot.child("userId").getValue().toString();
+                                    lat = snapshot.child("lat").getValue().toString();
+                                    lon = snapshot.child("lon").getValue().toString();
+                                    direction.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View view) {
+                                            Intent o = new Intent(AdDetail.this, MapActivity.class);
+                                            o.putExtra("lat", lat);
+                                            o.putExtra("lat", lat);
+                                            startActivity(o);
+                                        }
+                                    });
                                     city.setText(snapshot.child("city").getValue().toString());
                                     chat.setOnClickListener(new View.OnClickListener() {
                                         @Override
@@ -315,6 +328,7 @@ public class AdDetail extends AppCompatActivity {
                         call = findViewById(R.id.call);
                         msg = findViewById(R.id.message);
                         buy = findViewById(R.id.buy);
+                        direction = findViewById(R.id.direction);
                         id = getIntent().getStringExtra("id");
                         databaseReference.child("Like").child(uid).child(id).addValueEventListener(new ValueEventListener() {
                             @Override
@@ -366,6 +380,17 @@ public class AdDetail extends AppCompatActivity {
                                     title.setText(snapshot.child("title").getValue().toString());
                                     userID = snapshot.child("userId").getValue().toString();
                                     city.setText(snapshot.child("city").getValue().toString());
+                                    lat = snapshot.child("lat").getValue().toString();
+                                    lon = snapshot.child("lon").getValue().toString();
+                                    direction.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View view) {
+                                            Intent o = new Intent(AdDetail.this, MapActivity.class);
+                                            o.putExtra("lat", lat);
+                                            o.putExtra("lat", lat);
+                                            startActivity(o);
+                                        }
+                                    });
                                     chat.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View view) {

@@ -11,6 +11,8 @@ public class AdAttr {
     String Category;
     String Quantity;
     String City;
+    String Lon;
+    String Lat;
 
     public String getId() {
         return Id;
@@ -92,7 +94,23 @@ public class AdAttr {
         City = city;
     }
 
-    public AdAttr(String id, String userId, String title, String description, String image, String date, String price, String category, String quantity, String city) {
+    public String getLon() {
+        return Lon;
+    }
+
+    public void setLon(String lon) {
+        Lon = lon;
+    }
+
+    public String getLat() {
+        return Lat;
+    }
+
+    public void setLat(String lat) {
+        Lat = lat;
+    }
+
+    public AdAttr(String id, String userId, String title, String description, String image, String date, String price, String category, String quantity, String city, String lon, String lat) {
         Id = id;
         UserId = userId;
         Title = title;
@@ -103,6 +121,8 @@ public class AdAttr {
         Category = category;
         Quantity = quantity;
         City = city;
+        Lon = lon;
+        Lat = lat;
     }
 
     public AdAttr() {
