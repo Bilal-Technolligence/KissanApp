@@ -32,15 +32,7 @@
         <item>Chicken</item>
         <item>Tractor</item>
     </string-array>
-    <string-array name="product_handicraft">
-        <item>Embroidery</item>
-        <item>Carpets</item>
-        <item>Cotton Garments</item>
-        <item>Camel Lamps</item>
-        <item>Khussa</item>
-        <item>Wood Carvings</item>
-        <item>Earthen Pots</item>
-    </string-array>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

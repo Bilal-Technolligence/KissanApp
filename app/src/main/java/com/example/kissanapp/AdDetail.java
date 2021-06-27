@@ -124,7 +124,7 @@ public class AdDetail extends AppCompatActivity {
                                         public void onClick(View view) {
                                             Intent o = new Intent(AdDetail.this, MapActivity.class);
                                             o.putExtra("lat", lat);
-                                            o.putExtra("lat", lat);
+                                            o.putExtra("lon", lon);
                                             startActivity(o);
                                         }
                                     });
@@ -240,13 +240,13 @@ public class AdDetail extends AppCompatActivity {
                                                                                     databaseReference.child("Notification").child(push2).child("orderId").setValue(push);
                                                                                     databaseReference.child("Notification").child(push2).child("id").setValue(push2);
 
-                                                                                    String push3 = FirebaseDatabase.getInstance().getReference().child("Notification").push().getKey();
-                                                                                    databaseReference.child("Notification").child(push3).child("description").setValue("You have a new Order");
-                                                                                    databaseReference.child("Notification").child(push3).child("status").setValue("unread");
-                                                                                    databaseReference.child("Notification").child(push3).child("title").setValue("Order Alert");
-                                                                                    databaseReference.child("Notification").child(push3).child("receiverid").setValue(uid);
-                                                                                    databaseReference.child("Notification").child(push3).child("orderId").setValue(push);
-                                                                                    databaseReference.child("Notification").child(push3).child("id").setValue(push3);
+//                                                                                    String push3 = FirebaseDatabase.getInstance().getReference().child("Notification").push().getKey();
+//                                                                                    databaseReference.child("Notification").child(push3).child("description").setValue("You have a new Order");
+//                                                                                    databaseReference.child("Notification").child(push3).child("status").setValue("unread");
+//                                                                                    databaseReference.child("Notification").child(push3).child("title").setValue("Order Alert");
+//                                                                                    databaseReference.child("Notification").child(push3).child("receiverid").setValue(uid);
+//                                                                                    databaseReference.child("Notification").child(push3).child("orderId").setValue(push);
+//                                                                                    databaseReference.child("Notification").child(push3).child("id").setValue(push3);
 
                                                                                     Toast.makeText(getApplicationContext(), "Added to cart..", Toast.LENGTH_LONG).show();
                                                                                     buy.setVisibility(View.GONE);
